@@ -1,0 +1,16 @@
+[package]
+name = "unicode-collation"
+version = "0.0.1"
+authors = ["Ivan Dubrov <dubrov.ivan@gmail.com>"]
+categories = []
+keywords = ["unicode", "collate", "text"]
+description = "Unicode collation algorithm according to Technical Standard #10."
+repository = "https://github.com/idubrov/unicode-collate"
+license = "MIT/Apache-2.0"
+readme = "README.md"
+exclude = ["/data/**"]
+
+[dependencies]
+unicode-normalization = "0.1.5"
+pest = "1.0"
+pest_derive = "1.0"

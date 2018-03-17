@@ -1,0 +1,23 @@
+table       = { soi ~ version ~ implicit* ~ entry+ ~ eoi }
+implicit    = { "@implicitweights" ~ codepoint ~ ".." ~ codepoint ~ ";" ~ weight }
+version     = { "@version" ~ major ~ "." ~ minor ~ "." ~ variant }
+entry       = { codepoints ~ ";" ~ elements }
+
+codepoints  = { codepoint+ }
+elements    = { element+ }
+
+weight      =@{ hex ~ hex ~ hex ~ hex } 
+element     = { "[" ~ alt ~ weight ~ "." ~ weight ~ "." ~ weight ~ ("." ~ weight)? ~ "]" }
+alt         = { "*" | "." }
+major       =@{ digit+ }
+minor       =@{ digit+ }
+variant     =@{ digit+ }
+
+codepoint   =@{ hex+ }
+hex         = { '0'..'9' | 'A'..'F' }
+digit       = { '0'..'9' }
+
+// Comments and whitespaces
+newline     = _{ "\r" | "\n" } // Note: we accept any invalid newline as well
+comment     = _{ "#" ~ (!newline ~ any)* }
+whitespace  = _{ " " | "\t" | newline }
