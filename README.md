@@ -1,6 +1,6 @@
-[![crates.io](https://img.shields.io/crates/v/unicode-collate.svg)](https://crates.io/crates/unicode-collate)
-[![crates.io](https://img.shields.io/crates/d/unicode-collate.svg)](https://crates.io/crates/unicode-collate)
-[![CircleCI](https://img.shields.io/circleci/project/github/idubrov/unicode-collate.svg)](https://circleci.com/gh/idubrov/unicode-collate)
+[![crates.io](https://img.shields.io/crates/v/unicode-collation.svg)](https://crates.io/crates/unicode-collation)
+[![crates.io](https://img.shields.io/crates/d/unicode-collation.svg)](https://crates.io/crates/unicode-collation)
+[![CircleCI](https://img.shields.io/circleci/project/github/idubrov/unicode-collation.svg)](https://circleci.com/gh/idubrov/unicode-collation)
 
 # unicode-collation
 

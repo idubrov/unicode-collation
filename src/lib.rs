@@ -15,7 +15,7 @@
 //! ```rust
 //! extern crate unicode_collation;
 //! use unicode_collation::{collate, CollationTable};
-//! 
+//!
 //! # pub fn main() {
 //! let table = CollationTable::from_text_file("data/allkeys.txt");
 //! let key = collate("Hello!!!", &table);
@@ -28,9 +28,9 @@
 extern crate pest;
 #[macro_use]
 extern crate pest_derive;
-extern crate unicode_normalization;
+extern crate unic_normal;
 
-use unicode_normalization::UnicodeNormalization;
+use unic_normal::StrNormalForm;
 use std::fmt;
 use std::ops::Deref;
 
@@ -64,7 +64,6 @@ impl fmt::Debug for SortKey {
     }
 }
 
-
 pub fn collate(text: &str, table: &table::CollationTable) -> SortKey {
     let mut weights = Vec::new();
     for c in text.nfd() {
@@ -85,7 +84,7 @@ pub fn collate(text: &str, table: &table::CollationTable) -> SortKey {
     while sort_key.last() == Some(&0) {
         sort_key.pop();
     }
-    
+
     SortKey(sort_key)
 }
 
@@ -103,12 +102,13 @@ mod tests {
         let file = File::open("data/CollationTest/CollationTest_NON_IGNORABLE.txt").unwrap();
         let file = BufReader::new(&file);
         for (line_num, line) in file.lines().enumerate() {
+            let line_num = line_num + 1;
             let line = line.unwrap();
             let line = line.trim();
             if line.starts_with("#") || line.is_empty() {
                 continue;
             }
-            let mut parts = line.split(';');
+            let mut parts = line.splitn(2, ';');
 
             let codes = parts.next().unwrap();
             let text = codes

@@ -5,12 +5,12 @@ authors = ["Ivan Dubrov <dubrov.ivan@gmail.com>"]
 categories = []
 keywords = ["unicode", "collate", "text"]
 description = "Unicode collation algorithm according to Technical Standard #10."
-repository = "https://github.com/idubrov/unicode-collate"
+repository = "https://github.com/idubrov/unicode-collation"
 license = "MIT/Apache-2.0"
 readme = "README.md"
 exclude = ["/data/**"]
 
 [dependencies]
-unicode-normalization = "0.1.5"
+unic-normal = "0.7.0"
 pest = "1.0"
 pest_derive = "1.0"
